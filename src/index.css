@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --transition-duration: 0.3s;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Account for fixed navbar */
+}
+
+body {
+  @apply bg-background-light text-text-light dark:bg-background-dark dark:text-text-dark transition-colors duration-300;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.loader-container {
+  @apply fixed inset-0 flex flex-col items-center justify-center bg-black text-white z-[9999];
+  font-family: 'Segoe UI', sans-serif;
+  transition: opacity 0.6s;
+}
+
+.loader-text {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  animation: pulse 1.5s infinite;
+}
+
+.loader-spinner {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #00f7ff;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6;}
+  50% { opacity: 1;}
+}
+
+.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.nav-scrolled {
+  @apply bg-white/90 dark:bg-gray-900/90 shadow-lg backdrop-blur-md;
+}
+
+.nav-link {
+  @apply relative text-text-light dark:text-text-dark hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-300;
+}
+
+.nav-link::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary-light dark:bg-primary-dark transition-all duration-300;
+}
+
+.nav-link:hover::after {
+  @apply w-full;
+}
+
+.section {
+  @apply py-16 md:py-24;
+}
+
+.container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.btn-primary {
+  @apply bg-primary-light text-white px-6 py-2 rounded-lg hover:bg-primary-dark transition-all duration-300 hover:shadow-lg active:scale-95;
+}
+
+/* Custom Animations */
+.fade-in {
+  @apply animate-fade-in;
+}
+
+.slide-up {
+  @apply animate-slide-up;
+}
+
+/* Mobile Menu Animation */
+.mobile-menu-enter {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.mobile-menu-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.mobile-menu-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mobile-menu-exit-active {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 300ms, transform 300ms;
+} 
