@@ -61,14 +61,3 @@ This project was developed with the assistance of:
 
 * **Claude 3.5 Sonnet** — For code generation and project structure
 * **GitHub Copilot** — For code suggestions and inline completion
-
-## 📄 License
-
-MIT
-
-```
-
----
-
-Let me know if you'd like a badge section (`Vercel Deploy`, `MIT License`, `React`, etc.) or contributor info added!
-```
